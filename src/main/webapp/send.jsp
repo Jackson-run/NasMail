@@ -8,32 +8,76 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Title</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-<h1>发送邮件</h1>
-<br>
-<form>
-    <div class="form-group">
-        <label>收件人</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-    </div>
-    <div class="form-group">
-        <label>主题</label>
-        <input type="text" class="form-control" id="exampleInputName2" placeholder="Title">
-    </div>
-    <div class="form-group">
-        <label>正文</label>
-        <textarea class="form-control" rows="20"></textarea>
-        <p class="help-block">Example block-level help text here.</p>
-    </div>
-    <button type="button" class="btn btn-success">发送</button>
-    <button type="button" class="btn btn-info"> 保存</button>
-</form>
 
+<body style="margin:30px">
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <nav class="navbar navbar-inverse">
+                <div class="navbar-collapse">
+                    <ul id="myTab" class="nav nav-pills nav-stacked">
+
+                        <li class="active"><a>本人邮箱</a></li>
+                        <li ><a href="#send">发件箱</a></li>
+                        <li><a href="#receive">收件箱</a></li>
+                        <li><a href="#drafts">草稿箱</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+        <div class="col-md-9">
+            <div class="tab-content">
+                <div class="tab-pane active" id="send">
+                    <form>
+                        <div class="form-group">
+                            <label>收件人</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label>主题</label>
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label>正文</label>
+                            <textarea class="form-control" rows="20"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-success">发送</button>
+                        <button type="button" class="btn btn-info"> 保存</button>
+
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="receive">
+                    <div class="form-group">
+                        <label>收件人</label>
+                        <textarea class="form-control" rows="25" placeholder="正文内容"></textarea>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="drafts">
+                    <div class="form-group">
+                        <label>草稿箱正文</label>
+                        <textarea class="form-control" rows="25" placeholder="正文内容"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+<script>
+    $(function () {
+        $('#myTab a:last').tab('show');//初始化显示哪个tab
+        $('#myTab a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        })
+    })
+</script>
+
+
