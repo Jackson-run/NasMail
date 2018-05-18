@@ -3,6 +3,6 @@
     <MysqlCon>
         <Con>jdbc:mysql://111.230.241.247:3306/NasMail?useUnicode=true</Con>
         <U_name>root</U_name>
-        <U_pass>ustc520!@</U_pass>
+        <U_pass>ustc677!@</U_pass>
     </MysqlCon>
 </ConFactory>
